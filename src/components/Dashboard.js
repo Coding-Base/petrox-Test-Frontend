@@ -13,7 +13,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/courses/")
+      .get("https://petroxtestbackend.onrender.com/api/courses/")
       .then((response) => setCourses(response.data))
       .catch((error) => {
         console.error("Error fetching courses:", error);
@@ -29,7 +29,7 @@ const Dashboard = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/start-test/",
+        "https://petroxtestbackend.onrender.com/api/start-test/",
         {
           course_id: selectedCourse,
           question_count: parseInt(questionCount, 10),

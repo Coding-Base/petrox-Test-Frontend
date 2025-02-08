@@ -12,7 +12,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8000/api/users/', { username, email, password });
+      await axios.post('https://petroxtestbackend.onrender.com/api/users/', { username, email, password });
       alert('Registration successful, please login');
       navigate('/login');
     } catch (error) {

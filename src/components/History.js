@@ -6,7 +6,7 @@ const History = () => {
   const [tests, setTests] = useState([]);
   
   useEffect(() => {
-    axios.get('http://localhost:8000/api/history/')
+    axios.get('https://petroxtestbackend.onrender.com/api/history/')
       .then(response => setTests(response.data))
       .catch(err => console.log(err));
   }, []);

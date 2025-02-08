@@ -14,7 +14,9 @@ const Chat = () => {
     }
 
     // Ensure this URL matches your Django WebSocket route.
-    ws.current = new WebSocket("ws://localhost:8000/ws/test_portal/");
+    ws.current = new WebSocket("wss://https://petroxtestbackend.onrender.com/ws/test_portal/")
+  
+    ;
 
     ws.current.onopen = () => {
       console.log("WebSocket connected");
