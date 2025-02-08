@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css"; // Custom CSS file
-
+import Chat from './chat';
 const Dashboard = () => {
   const [courses, setCourses] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState("");
@@ -94,8 +94,11 @@ const Dashboard = () => {
           Begin Test
         </button>
       </div>
+      <Chat />
     </div>
+    
   );
+ 
 };
 
 export default Dashboard;
