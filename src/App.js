@@ -23,8 +23,8 @@ function App() {
       <div className="container">
       <h1 style={{color:' #302AF3'}}>Welcome buddy, Start a test, click on the Dashboard Link  After <a href='https://petrox-test-frontend.onrender.com/login'>Login </a>in !!!</h1>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login/>} />
+          <Route path="/login" element={<Dashboard />} />
           <Route path="/register" element={<Register />} />
           <Route path="/test/:sessionId" element={<Test />} />
           <Route path="/history" element={<History />} />
