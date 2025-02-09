@@ -21,7 +21,11 @@ function App() {
       </header>
       
       <div className="container">
-      <h1 style={{color:' #302AF3'}}>Welcome buddy, Start a test, click on the Dashboard Link  After <a href='https://petrox-test-frontend.onrender.com/login'>Login </a>in !!!</h1>
+     <h1 style={{ color: '#302AF3' }}>
+  Welcome buddy, Start a test, click on the Dashboard Link After{' '}
+  <Link to="/login">Login</Link> in!!!
+</h1>
+
         <Routes>
           <Route path="/Login" element={<Login/>} />
           <Route path="/dashboard" element={<Dashboard />} />
