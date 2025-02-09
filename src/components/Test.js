@@ -15,7 +15,7 @@ const Test = () => {
   // Fetch test session details and update the timer.
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/test-session/${sessionId}/`)
+      .get(`https://petroxtestbackend.onrender.com/api/test-session/${sessionId}/`)
       .then((response) => {
         setTestSession(response.data);
         setTimeLeft(response.data.duration ?? 300); // Default to 300 if duration is not provided
@@ -28,7 +28,7 @@ const Test = () => {
     if (!window.confirm("Are you sure you want to submit the test?")) return;
     
     try {
-      const response = await axios.post(`http://localhost:8000/api/submit-test/${sessionId}/`, { answers });
+      const response = await axios.post(`https://petroxtestbackend.onrender.com/api/submit-test/${sessionId}/`, { answers });
       alert(`Test submitted! Your score: ${response.data.score}`);
 
       if (testSession) {
