@@ -1,4 +1,5 @@
 /* src/App.css */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -45,4 +46,60 @@ body {
 .timer {
   font-size: 1.5rem;
   color: #302AF3;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .container {
+    width: 95%;       /* Slightly wider on small screens */
+    margin: 1rem auto;
+    padding: 0.5rem;
+  }
+  
+  .header {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .inputField {
+    padding: 0.4rem;
+    font-size: 0.9rem;
+  }
+  
+  .timer {
+    font-size: 1.2rem;
+  }
+}
+
+/* Optional: Adjust for medium screens (e.g., tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    width: 90%;
+    margin: 1.5rem auto;
+    padding: 0.75rem;
+  }
+  
+  .header {
+    padding: 0.75rem;
+    font-size: 1.4rem;
+  }
+  
+  .button {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.95rem;
+  }
+  
+  .inputField {
+    padding: 0.45rem;
+    font-size: 0.95rem;
+  }
+  
+  .timer {
+    font-size: 1.3rem;
+  }
 }
