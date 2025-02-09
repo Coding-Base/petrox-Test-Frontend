@@ -1,82 +1,145 @@
 /* Dashboard.css */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-  }
-  
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.dashboard-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  text-align: center;
+}
+
+.dashboard-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #302af3;
+  margin-bottom: 20px;
+}
+
+.dashboard-input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.dashboard-input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.dashboard-input,
+.dashboard-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.dashboard-input:focus,
+.dashboard-select:focus {
+  outline: none;
+  border-color: #ffcc00;
+  box-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+}
+
+.dashboard-button {
+  background-color: #302af3;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-button:hover {
+  background-color: #241db8;
+}
+
+.dashboard-button:active {
+  background-color: #1a1491;
+}
+
+/* Responsive Styles */
+
+/* For small screens (mobile devices) */
+@media (max-width: 600px) {
   .dashboard-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-    padding: 20px;
+    padding: 10px;
   }
   
   .dashboard-card {
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    padding: 20px;
-    text-align: center;
+    max-width: 95%; /* Slightly wider card on small screens */
+    padding: 15px;
   }
   
   .dashboard-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #302af3;
-    margin-bottom: 20px;
-  }
-  
-  .dashboard-input-group {
+    font-size: 20px;
     margin-bottom: 15px;
-    text-align: left;
   }
   
   .dashboard-input-group label {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #333;
+    font-size: 12px;
   }
   
   .dashboard-input,
   .dashboard-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-  }
-  
-  .dashboard-input:focus,
-  .dashboard-select:focus {
-    outline: none;
-    border-color: #ffcc00;
-    box-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+    padding: 8px;
+    font-size: 12px;
   }
   
   .dashboard-button {
-    background-color: #302af3;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .dashboard-card {
+    max-width: 85%;
+    padding: 18px;
   }
   
-  .dashboard-button:hover {
-    background-color: #241db8;
+  .dashboard-title {
+    font-size: 22px;
+    margin-bottom: 18px;
   }
   
-  .dashboard-button:active {
-    background-color: #1a1491;
+  .dashboard-input-group label {
+    font-size: 13px;
   }
+  
+  .dashboard-input,
+  .dashboard-select {
+    padding: 9px;
+    font-size: 13px;
+  }
+  
+  .dashboard-button {
+    padding: 11px;
+    font-size: 15px;
+  }
+}
+
   
