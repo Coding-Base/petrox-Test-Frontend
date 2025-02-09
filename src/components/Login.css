@@ -1,0 +1,118 @@
+/* General Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Background Shapes */
+  .background-shapes .circle {
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .background-shapes .yellow {
+    background-color: #ffcc00;
+    width: 120px;
+    height: 120px;
+    top: 10%;
+    left: 5%;
+  }
+  
+  .background-shapes .blue {
+    background-color: #302af3;
+    width: 80px;
+    height: 80px;
+    bottom: 15%;
+    right: 8%;
+  }
+  
+  .background-shapes .triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 80px solid #ffcc00;
+    top: 20%;
+    right: 10%;
+  }
+  
+  .background-shapes .square {
+    position: absolute;
+    background-color: #302af3;
+    width: 60px;
+    height: 60px;
+    bottom: 5%;
+    left: 10%;
+  }
+  
+  /* Login Box */
+  .login-box {
+    background: white;
+    padding: 30px 20px;
+    width: 360px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .login-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #302af3;
+  }
+  
+  .login-subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #7a7a7a;
+  }
+  
+  .login-subtitle a {
+    color: #302af3;
+    text-decoration: none;
+  }
+  
+  .login-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .login-button {
+    background-color: #302af3;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  
+  .login-button:hover {
+    background-color: #1f1ab7;
+  }
+  
+  .login-footer {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #7a7a7a;
+  }
+  
+  .login-footer a {
+    color: #302af3;
+    text-decoration: none;
+  }
+  
