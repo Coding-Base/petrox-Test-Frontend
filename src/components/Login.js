@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import './Login.css'; // Updated import for styles
 
@@ -55,7 +56,8 @@ const Login = () => {
           </button>
         </form>
         <p className="login-footer">
-          New here? <a href="/register">Create an account</a>.
+          New here? {' '}
+  <Link to="/">Create an account</Link> in!!!
         </p>
       </div>
     </div>
