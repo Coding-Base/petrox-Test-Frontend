@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,8 +25,9 @@ SECRET_KEY = 'django-insecure-i9d_-+e(bfi4x*lzbc2o@7j)&$kk#2!qo9h87ai8ke+44u=10_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "https://petroxtestbackend.onrender.com"]
 
 # Application definition
 
@@ -41,7 +42,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'exams',
     'corsheaders',
+     'channels',
 ]
+
+ASGI_APPLICATION = 'test_portal.asgi.application'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -52,6 +56,8 @@ REST_FRAMEWORK = {
 CORS_ALLOW_ALL_ORIGINS = True
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+   
     'corsheaders.middleware.CorsMiddleware',  # <-- this belongs here
      # also here
     'django.middleware.security.SecurityMiddleware',
@@ -81,19 +87,29 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'test_portal.wsgi.application'
+# WSGI_APPLICATION = 'test_portal.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'djongo',
+        'NAME': 'EMAIL_SENDER',
+        'CLIENT': {
+            'host': 'mongodb+srv://osimigbubemigodsgift:mWtHyXvwEEqcGukR@cluster0.kmyaf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+            'ssl': True,
+            'ssl_cert_reqs': 'CERT_REQUIRED',
+        },
+    },
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -131,9 +147,26 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 USE_TZ = True
 TIME_ZONE = 'UTC'  # Or your preferred timezone
+
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             "hosts": [('127.0.0.1', 6379)],
+#         },
+#     },
+# }
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
