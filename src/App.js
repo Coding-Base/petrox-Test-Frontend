@@ -15,7 +15,7 @@ function App() {
         <img src={image} alt='Petroxlogo'/>
         <h1>Test Portal</h1>
         <nav>
-          <Link to="/" style={{color: '#302AF3', marginRight: '1rem'}}>Dashboard</Link>
+          <Link to="/dashboard" style={{color: '#302AF3', marginRight: '1rem'}}>Dashboard</Link>
           <Link to="/history" style={{color: '#302AF3'}}>History</Link>
         </nav>
       </header>
@@ -24,7 +24,7 @@ function App() {
       <h1 style={{color:' #302AF3'}}>Welcome buddy, Start a test, click on the Dashboard Link  After <a href='https://petrox-test-frontend.onrender.com/login'>Login </a>in !!!</h1>
         <Routes>
           <Route path="/Login" element={<Login/>} />
-          <Route path="/login" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/" element={<Register />} />
           <Route path="/test/:sessionId" element={<Test />} />
           <Route path="/history" element={<History />} />
