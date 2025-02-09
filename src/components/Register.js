@@ -14,10 +14,14 @@ const Register = () => {
     try {
       await axios.post('https://petroxtestbackend.onrender.com/api/users/', { username, email, password });
       alert('Registration successful, please login');
-      navigate('/login');
+      navigate('/login'); // Navigate to login on success
     } catch (error) {
       alert('Registration failed');
     }
+  };
+
+  const handleSignIn = () => {
+    navigate('/login'); // Navigate programmatically to /login
   };
 
   return (
@@ -61,7 +65,13 @@ const Register = () => {
           </button>
         </form>
         <p className="login-footer">
-          Already have an account? <a href="/login">Sign in</a>.
+          Already have an account?{' '}
+          <span
+            onClick={handleSignIn}
+            style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
+          >
+            Sign in
+          </span>.
         </p>
       </div>
     </div>
