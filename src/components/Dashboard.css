@@ -7,8 +7,8 @@ body {
 
 .dashboard-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
   min-height: 100vh;
   background-color: #f4f4f4;
   padding: 20px;
@@ -22,6 +22,18 @@ body {
   max-width: 500px;
   padding: 20px;
   text-align: center;
+}
+
+/* Chat area with fixed dimensions */
+.dashboard-chat {
+  width: 400px;       /* Fixed width */
+  min-width: 400px;   /* Prevent shrinking */
+  height: 500px;      /* Fixed height (adjust as needed) */
+  margin-left: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;   /* Allow vertical scrolling if content exceeds height */
 }
 
 .dashboard-title {
@@ -80,66 +92,15 @@ body {
   background-color: #1a1491;
 }
 
-/* Responsive Styles */
-
-/* For small screens (mobile devices) */
+/* Prevent the dashboard from wrapping on mobile */
 @media (max-width: 600px) {
   .dashboard-container {
-    padding: 10px;
+    flex-wrap: nowrap; /* Keep the fixed-width chat component from stacking */
+    overflow-x: auto;  /* Enable horizontal scroll if needed */
   }
-  
+  /* Optionally, adjust the dashboard card for better visibility on small screens */
   .dashboard-card {
-    max-width: 95%; /* Slightly wider card on small screens */
-    padding: 15px;
+    max-width: 500px; /* Keep the fixed size if needed */
   }
-  
-  .dashboard-title {
-    font-size: 20px;
-    margin-bottom: 15px;
-  }
-  
-  .dashboard-input-group label {
-    font-size: 12px;
-  }
-  
-  .dashboard-input,
-  .dashboard-select {
-    padding: 8px;
-    font-size: 12px;
-  }
-  
-  .dashboard-button {
-    padding: 10px;
-    font-size: 14px;
-  }
+  /* The dashboard-chat keeps its fixed width and height */
 }
-
-/* For medium screens (tablets) */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .dashboard-card {
-    max-width: 85%;
-    padding: 18px;
-  }
-  
-  .dashboard-title {
-    font-size: 22px;
-    margin-bottom: 18px;
-  }
-  
-  .dashboard-input-group label {
-    font-size: 13px;
-  }
-  
-  .dashboard-input,
-  .dashboard-select {
-    padding: 9px;
-    font-size: 13px;
-  }
-  
-  .dashboard-button {
-    padding: 11px;
-    font-size: 15px;
-  }
-}
-
-  
