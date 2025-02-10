@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css'; // Updated import for styles
 
 const Login = () => {
@@ -12,9 +11,14 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://petroxtestbackend.onrender.com/api/token/', { username, password });
+      const response = await axios.post(
+        'https://petroxtestbackend.onrender.com/api/token/',
+        { username, password }
+      );
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
+      // Save the username to localStorage so it can be used by other components
+      localStorage.setItem('username', username);
       axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.access;
       navigate('/dashboard');
     } catch (error) {
@@ -56,8 +60,8 @@ const Login = () => {
           </button>
         </form>
         <p className="login-footer">
-          New here? {' '}
-  <Link to="/">Create an account</Link> in!!!
+          New here?{' '}
+          <Link to="/">Create an account</Link> in!!!
         </p>
       </div>
     </div>
