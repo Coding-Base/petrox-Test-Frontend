@@ -1,23 +1,12 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+ import React, { useState, useEffect, useRef, useCallback } from "react";
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
   const [isConnected, setIsConnected] = useState(false);
-  
-  // Remove the fallback value "Anonymous"
-  const username = localStorage.getItem("username");
-  const navigate = useNavigate();
+  const username = localStorage.getItem("username") || "Anonymous";
   const ws = useRef(null);
   // const reconnectAttempts = useRef(0); // Reconnection logic is disabled
-
-  // Redirect to login if there's no username in localStorage
-  useEffect(() => {
-    if (!username) {
-      navigate("/login");
-    }
-  }, [username, navigate]);
 
   const connectWebSocket = useCallback(() => {
     if (ws.current) {
@@ -26,6 +15,9 @@ const Chat = () => {
 
     // Ensure this URL matches your Django WebSocket route.
     ws.current = new WebSocket("wss://petroxtestbackend.onrender.com/ws/test_portal/");
+
+  
+    ;
 
     ws.current.onopen = () => {
       console.log("WebSocket connected");
@@ -46,7 +38,17 @@ const Chat = () => {
     ws.current.onclose = () => {
       console.log("WebSocket disconnected.");
       setIsConnected(false);
-      // Reconnection logic is commented out.
+
+      // The following reconnection logic is now commented out:
+      /*
+      if (reconnectAttempts.current < 5) {
+        setTimeout(() => {
+          reconnectAttempts.current += 1;
+          console.log(Reconnecting attempt ${reconnectAttempts.current}...);
+          connectWebSocket(); // Try reconnecting
+        }, 3000); // Retry after 3 seconds
+      }
+      */
     };
   }, []);
 
@@ -159,4 +161,3 @@ const styles = {
 };
 
 export default Chat;
-
