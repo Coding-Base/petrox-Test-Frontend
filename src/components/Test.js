@@ -39,7 +39,7 @@ const Test = () => {
       setReview(true);
     } catch (error) {
       console.error(error);
-      alert('Submission failed.');
+      alert('Submission failed. Session Expired Try logging in again');
     }
   }, [answers, sessionId, testSession]);
 
