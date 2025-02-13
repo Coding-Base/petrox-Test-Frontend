@@ -12,13 +12,28 @@ const Test = () => {
   const [failedAnswers, setFailedAnswers] = useState([]);
   const [review, setReview] = useState(false);
 
+  // Function to shuffle an array (Fisher-Yates algorithm)
+  const shuffleArray = (array) => {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+  };
+
   // Fetch test session details and update the timer.
   useEffect(() => {
     axios
       .get(`https://petroxtestbackend.onrender.com/api/test-session/${sessionId}/`)
       .then((response) => {
-        setTestSession(response.data);
-        setTimeLeft(response.data.duration ?? 300); // Default to 300 if duration is not provided
+        const data = response.data;
+        if (data.questions) {
+          // Shuffle the questions array so that each user sees them in a random order.
+          data.questions = shuffleArray(data.questions);
+        }
+        setTestSession(data);
+        setTimeLeft(data.duration ?? 300); // Default to 300 if duration is not provided
       })
       .catch((err) => console.error(err));
   }, [sessionId]);
