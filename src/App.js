@@ -17,6 +17,7 @@ function App() {
         <nav>
           <Link to="/dashboard" style={{color: '#302AF3', marginRight: '1rem'}}>Dashboard</Link>
           <Link to="/history" style={{color: '#302AF3'}}>History</Link>
+          <Link to="https://petrox-test-frontend-7cep.onrender.com" style={{color: '#302AF3'}}>Main Dashboard</Link>
         </nav>
       </header>
       
