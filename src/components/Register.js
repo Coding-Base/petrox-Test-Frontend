@@ -7,10 +7,12 @@ const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await axios.post('https://petroxtestbackend.onrender.com/api/users/', { username, email, password });
       alert('Registration successful, please login');
@@ -18,6 +20,7 @@ const Register = () => {
     } catch (error) {
       alert('Registration failed');
     }
+    setLoading(false);
   };
 
   const handleSignIn = () => {
@@ -26,6 +29,32 @@ const Register = () => {
 
   return (
     <div className="login-container">
+      {loading && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 9999,
+          }}
+        >
+          <div
+            style={{
+              color: "#fff",
+              fontSize: "2rem",
+              fontWeight: "bold",
+            }}
+          >
+            Loading...
+          </div>
+        </div>
+      )}
       <div className="background-shapes">
         <div className="circle yellow"></div>
         <div className="circle blue"></div>
