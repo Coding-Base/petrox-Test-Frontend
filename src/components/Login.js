@@ -6,10 +6,12 @@ import './Login.css'; // Updated import for styles
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await axios.post(
         'https://petroxtestbackend.onrender.com/api/token/',
@@ -24,10 +26,37 @@ const Login = () => {
     } catch (error) {
       alert('Login failed');
     }
+    setLoading(false);
   };
 
   return (
     <div className="login-container">
+      {loading && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 9999,
+          }}
+        >
+          <div
+            style={{
+              color: "#fff",
+              fontSize: "2rem",
+              fontWeight: "bold",
+            }}
+          >
+            Loading...
+          </div>
+        </div>
+      )}
       <div className="background-shapes">
         <div className="circle yellow"></div>
         <div className="circle blue"></div>
@@ -60,8 +89,7 @@ const Login = () => {
           </button>
         </form>
         <p className="login-footer">
-          New here?{' '}
-          <Link to="/">Create an account</Link> in!!!
+          New here? <Link to="/">Create an account</Link> in!!!
         </p>
       </div>
     </div>
